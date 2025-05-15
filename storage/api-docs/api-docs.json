@@ -1,0 +1,120 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Doc API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/posts": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get All Posts",
+                "operationId": "47925884fb256655799d0ffd57c2a894",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "Some title"
+                                                    },
+                                                    "likes": {
+                                                        "type": "integer",
+                                                        "example": 20
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Create Post",
+                "operationId": "7999e1ba2e5585f522fc5d9d27915557",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "title": {
+                                                "type": "string",
+                                                "example": "Some title"
+                                            },
+                                            "likes": {
+                                                "type": "integer",
+                                                "example": 20
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "Some title"
+                                                },
+                                                "likes": {
+                                                    "type": "integer",
+                                                    "example": 20
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Post",
+            "description": "Post"
+        }
+    ]
+}
