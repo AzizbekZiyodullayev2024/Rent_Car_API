@@ -9,6 +9,7 @@ class CsrfTokenMiddleware
 {
     protected $except = [
         'posts', // yoki 'posts/*'
+        'cities', // yoki 'posts/*'
     ];
     public function handle(Request $request, Closure $next)
     {

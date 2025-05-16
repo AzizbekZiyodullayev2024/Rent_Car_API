@@ -6,6 +6,1308 @@
     },
     "paths": {
         "/api/": {},
+        "/api/cars": {
+            "get": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "Get All Cars",
+                "operationId": "b98edbb8587c0e8612b5783993e460a3",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "city_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "brand": {
+                                                        "type": "string",
+                                                        "example": "Chevrolet"
+                                                    },
+                                                    "model": {
+                                                        "type": "string",
+                                                        "example": "Cobalt"
+                                                    },
+                                                    "year": {
+                                                        "type": "integer",
+                                                        "example": 2020
+                                                    },
+                                                    "engine_volume": {
+                                                        "type": "string",
+                                                        "example": "1.5L"
+                                                    },
+                                                    "fuel_consumption": {
+                                                        "type": "string",
+                                                        "example": "7L/100km"
+                                                    },
+                                                    "transmission": {
+                                                        "type": "string",
+                                                        "example": "Automatic"
+                                                    },
+                                                    "fuel_type": {
+                                                        "type": "string",
+                                                        "example": "Petrol"
+                                                    },
+                                                    "seats": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "doors": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "daily_price": {
+                                                        "type": "integer",
+                                                        "example": 100
+                                                    },
+                                                    "deposit_amount": {
+                                                        "type": "integer",
+                                                        "example": 500
+                                                    },
+                                                    "insurance_type": {
+                                                        "type": "string",
+                                                        "example": "OSAGO"
+                                                    },
+                                                    "mileage_limit": {
+                                                        "type": "integer",
+                                                        "example": 300
+                                                    },
+                                                    "is_available": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Yaxshi holatda, yagona egasi"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-16T12:00:00Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "Create Car",
+                "operationId": "71d95205870971dfccf1f71cab96062c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "city_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "brand": {
+                                                "type": "string",
+                                                "example": "Chevrolet"
+                                            },
+                                            "model": {
+                                                "type": "string",
+                                                "example": "Cobalt"
+                                            },
+                                            "year": {
+                                                "type": "integer",
+                                                "example": 2020
+                                            },
+                                            "engine_volume": {
+                                                "type": "string",
+                                                "example": "1.5L"
+                                            },
+                                            "fuel_consumption": {
+                                                "type": "string",
+                                                "example": "7L/100km"
+                                            },
+                                            "transmission": {
+                                                "type": "string",
+                                                "example": "Automatic"
+                                            },
+                                            "fuel_type": {
+                                                "type": "string",
+                                                "example": "Petrol"
+                                            },
+                                            "seats": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "doors": {
+                                                "type": "integer",
+                                                "example": 4
+                                            },
+                                            "daily_price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "deposit_amount": {
+                                                "type": "integer",
+                                                "example": 500
+                                            },
+                                            "insurance_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "OSAGO",
+                                                    "CASCO"
+                                                ],
+                                                "example": "OSAGO"
+                                            },
+                                            "mileage_limit": {
+                                                "type": "integer",
+                                                "example": 300
+                                            },
+                                            "is_available": {
+                                                "type": "boolean",
+                                                "example": true
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Yaxshi holatda, yagona egasi"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "city_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "brand": {
+                                                    "type": "string",
+                                                    "example": "Chevrolet"
+                                                },
+                                                "model": {
+                                                    "type": "string",
+                                                    "example": "Cobalt"
+                                                },
+                                                "year": {
+                                                    "type": "integer",
+                                                    "example": 2020
+                                                },
+                                                "engine_volume": {
+                                                    "type": "string",
+                                                    "example": "1.5L"
+                                                },
+                                                "fuel_consumption": {
+                                                    "type": "string",
+                                                    "example": "7L/100km"
+                                                },
+                                                "transmission": {
+                                                    "type": "string",
+                                                    "example": "Automatic"
+                                                },
+                                                "fuel_type": {
+                                                    "type": "string",
+                                                    "example": "Petrol"
+                                                },
+                                                "seats": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "doors": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                },
+                                                "daily_price": {
+                                                    "type": "integer",
+                                                    "example": 100
+                                                },
+                                                "deposit_amount": {
+                                                    "type": "integer",
+                                                    "example": 500
+                                                },
+                                                "insurance_type": {
+                                                    "type": "string",
+                                                    "example": "OSAGO"
+                                                },
+                                                "mileage_limit": {
+                                                    "type": "integer",
+                                                    "example": 300
+                                                },
+                                                "is_available": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Yaxshi holatda, yagona egasi"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-16T12:00:00Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cars/{car}": {
+            "get": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "Get Car by param",
+                "operationId": "4d113b281cecd240f5a66a27d9cbd100",
+                "parameters": [
+                    {
+                        "name": "car",
+                        "in": "path",
+                        "description": "CarId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "city_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "brand": {
+                                                        "type": "string",
+                                                        "example": "Chevrolet"
+                                                    },
+                                                    "model": {
+                                                        "type": "string",
+                                                        "example": "Cobalt"
+                                                    },
+                                                    "year": {
+                                                        "type": "integer",
+                                                        "example": 2020
+                                                    },
+                                                    "engine_volume": {
+                                                        "type": "string",
+                                                        "example": "1.5L"
+                                                    },
+                                                    "fuel_consumption": {
+                                                        "type": "string",
+                                                        "example": "7L/100km"
+                                                    },
+                                                    "transmission": {
+                                                        "type": "string",
+                                                        "example": "Automatic"
+                                                    },
+                                                    "fuel_type": {
+                                                        "type": "string",
+                                                        "example": "Petrol"
+                                                    },
+                                                    "seats": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "doors": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "daily_price": {
+                                                        "type": "integer",
+                                                        "example": 100
+                                                    },
+                                                    "deposit_amount": {
+                                                        "type": "integer",
+                                                        "example": 500
+                                                    },
+                                                    "insurance_type": {
+                                                        "type": "string",
+                                                        "example": "OSAGO"
+                                                    },
+                                                    "mileage_limit": {
+                                                        "type": "integer",
+                                                        "example": 300
+                                                    },
+                                                    "is_available": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Yaxshi holatda, yagona egasi"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-16T12:00:00Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "Delete Car by id",
+                "operationId": "9ad79d3c9067caebdc5f05ca4800656f",
+                "parameters": [
+                    {
+                        "name": "car",
+                        "in": "path",
+                        "description": "CarId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "city_id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "brand": {
+                                            "type": "string",
+                                            "example": "Chevrolet"
+                                        },
+                                        "model": {
+                                            "type": "string",
+                                            "example": "Cobalt"
+                                        },
+                                        "year": {
+                                            "type": "integer",
+                                            "example": 2020
+                                        },
+                                        "engine_volume": {
+                                            "type": "string",
+                                            "example": "1.5L"
+                                        },
+                                        "fuel_consumption": {
+                                            "type": "string",
+                                            "example": "7L/100km"
+                                        },
+                                        "transmission": {
+                                            "type": "string",
+                                            "example": "Automatic"
+                                        },
+                                        "fuel_type": {
+                                            "type": "string",
+                                            "example": "Petrol"
+                                        },
+                                        "seats": {
+                                            "type": "integer",
+                                            "example": 5
+                                        },
+                                        "doors": {
+                                            "type": "integer",
+                                            "example": 4
+                                        },
+                                        "daily_price": {
+                                            "type": "integer",
+                                            "example": 100
+                                        },
+                                        "deposit_amount": {
+                                            "type": "integer",
+                                            "example": 500
+                                        },
+                                        "insurance_type": {
+                                            "type": "string",
+                                            "example": "OSAGO"
+                                        },
+                                        "mileage_limit": {
+                                            "type": "integer",
+                                            "example": 300
+                                        },
+                                        "is_available": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Yaxshi holatda, yagona egasi"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2025-05-16T12:00:00Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "Update Car by param",
+                "operationId": "9b0bdd7485db44d5a9059c924867a1e4",
+                "parameters": [
+                    {
+                        "name": "car",
+                        "in": "path",
+                        "description": "CarId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "city_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "brand": {
+                                                "type": "string",
+                                                "example": "Chevrolet"
+                                            },
+                                            "model": {
+                                                "type": "string",
+                                                "example": "Cobalt"
+                                            },
+                                            "year": {
+                                                "type": "integer",
+                                                "example": 2020
+                                            },
+                                            "engine_volume": {
+                                                "type": "string",
+                                                "example": "1.5L"
+                                            },
+                                            "fuel_consumption": {
+                                                "type": "string",
+                                                "example": "7L/100km"
+                                            },
+                                            "transmission": {
+                                                "type": "string",
+                                                "example": "Automatic"
+                                            },
+                                            "fuel_type": {
+                                                "type": "string",
+                                                "example": "Petrol"
+                                            },
+                                            "seats": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "doors": {
+                                                "type": "integer",
+                                                "example": 4
+                                            },
+                                            "daily_price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "deposit_amount": {
+                                                "type": "integer",
+                                                "example": 500
+                                            },
+                                            "insurance_type": {
+                                                "type": "string",
+                                                "example": "OSAGO"
+                                            },
+                                            "mileage_limit": {
+                                                "type": "integer",
+                                                "example": 300
+                                            },
+                                            "is_available": {
+                                                "type": "boolean",
+                                                "example": true
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Yaxshi holatda, yagona egasi"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2025-05-16T12:00:00Z"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "city_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "brand": {
+                                                        "type": "string",
+                                                        "example": "Chevrolet"
+                                                    },
+                                                    "model": {
+                                                        "type": "string",
+                                                        "example": "Cobalt"
+                                                    },
+                                                    "year": {
+                                                        "type": "integer",
+                                                        "example": 2020
+                                                    },
+                                                    "engine_volume": {
+                                                        "type": "string",
+                                                        "example": "1.5L"
+                                                    },
+                                                    "fuel_consumption": {
+                                                        "type": "string",
+                                                        "example": "7L/100km"
+                                                    },
+                                                    "transmission": {
+                                                        "type": "string",
+                                                        "example": "Automatic"
+                                                    },
+                                                    "fuel_type": {
+                                                        "type": "string",
+                                                        "example": "Petrol"
+                                                    },
+                                                    "seats": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "doors": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "daily_price": {
+                                                        "type": "integer",
+                                                        "example": 100
+                                                    },
+                                                    "deposit_amount": {
+                                                        "type": "integer",
+                                                        "example": 500
+                                                    },
+                                                    "insurance_type": {
+                                                        "type": "string",
+                                                        "example": "OSAGO"
+                                                    },
+                                                    "mileage_limit": {
+                                                        "type": "integer",
+                                                        "example": 300
+                                                    },
+                                                    "is_available": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Yaxshi holatda, yagona egasi"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-16T12:00:00Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/car_photo": {
+            "get": {
+                "tags": [
+                    "Car_Photo"
+                ],
+                "summary": "Get All Car Photos",
+                "operationId": "db80130f5bdef06073ab42a3fb74a098",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "car_id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "image_url": {
+                                                        "type": "string",
+                                                        "example": "https://example.com/images/car1.jpg"
+                                                    },
+                                                    "is_main": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Car_Photo"
+                ],
+                "summary": "Create Car Photo",
+                "operationId": "692bc4e83212537fe118b2ba6f632a72",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "car_id": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "image_url": {
+                                                "type": "string",
+                                                "example": "https://example.com/images/car1.jpg"
+                                            },
+                                            "is_main": {
+                                                "type": "boolean",
+                                                "example": true
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "car_id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "image_url": {
+                                                    "type": "string",
+                                                    "example": "https://example.com/images/car1.jpg"
+                                                },
+                                                "is_main": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/car_photo/{car_photo}": {
+            "get": {
+                "tags": [
+                    "Car_Photo"
+                ],
+                "summary": "Get Photo by param",
+                "operationId": "af593b8145bea5e9d18ffe067a5b119b",
+                "parameters": [
+                    {
+                        "name": "car_photo",
+                        "in": "path",
+                        "description": "PostId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "car_id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "image_url": {
+                                                        "type": "string",
+                                                        "example": "https://example.com/images/car1.jpg"
+                                                    },
+                                                    "is_main": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Car_Photo"
+                ],
+                "summary": "Delete Car_photo by id",
+                "operationId": "89c86c3e57cf739d6fc08b6b5af6eb1e",
+                "parameters": [
+                    {
+                        "name": "car_photo",
+                        "in": "path",
+                        "description": "PostId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Deleted car photo"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Car_Photo"
+                ],
+                "summary": "Update Car Photo by param",
+                "operationId": "9f17e01101c7eaf98304dab896bcd0ab",
+                "parameters": [
+                    {
+                        "name": "car_photo",
+                        "in": "path",
+                        "description": "PostId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "car_id": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "image_url": {
+                                                "type": "string",
+                                                "example": "https://example.com/images/car1.jpg"
+                                            },
+                                            "is_main": {
+                                                "type": "boolean",
+                                                "example": true
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "car_id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "image_url": {
+                                                        "type": "string",
+                                                        "example": "https://example.com/images/car1.jpg"
+                                                    },
+                                                    "is_main": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cities": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get All Cities",
+                "operationId": "ada44ad22712f1486492fc6e6171b624",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Some name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Create City",
+                "operationId": "82653104a9039f871f02f3c40b7b498c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Some name"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cities/{city}": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get Cities by param",
+                "operationId": "22d3ebe5ff09f38c53b1cd49ee386772",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "CityId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Some name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Delete City by id",
+                "operationId": "649be927993e4f04e799ac453585dee8",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "PostId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "City deleted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Update City by param",
+                "operationId": "338190d817a1224f17c964f4a57edf0b",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "CityId",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name for update"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Some title"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/posts": {
             "get": {
                 "tags": [
@@ -304,6 +1606,18 @@
         }
     },
     "tags": [
+        {
+            "name": "Car",
+            "description": "Car"
+        },
+        {
+            "name": "Car_Photo",
+            "description": "Car_Photo"
+        },
+        {
+            "name": "City",
+            "description": "City"
+        },
         {
             "name": "Post",
             "description": "Post"
