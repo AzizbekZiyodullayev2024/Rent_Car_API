@@ -1,12 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Resources\CarPhoto\CarPhotoResource;
+use App\Http\Resources\CarPhotoResource;
 use App\Models\CarPhoto;
 use Illuminate\Http\Request;
-use App\Http\Requests\CarPhoto\StoreRequest;
-use App\Http\Requests\CarPhoto\UpdateRequest;
-use Illuminate\Support\Facades\Log;
 class CarPhotoController extends Controller
 {
     /**
