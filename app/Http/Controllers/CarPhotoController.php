@@ -6,6 +6,7 @@ use App\Models\CarPhoto;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarPhoto\StoreRequest;
 use App\Http\Requests\CarPhoto\UpdateRequest;
+use Illuminate\Support\Facades\Log;
 class CarPhotoController extends Controller
 {
     /**
@@ -28,11 +29,28 @@ class CarPhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        $car = CarPhoto::create($data);     
-        return CarPhotoResource::make($car)->resolve();   
+        $request->validate([
+            'car_id' => 'required|exists:cars,id',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'is_main' => 'boolean'
+        ]);
+
+        // Faylni storagega saqlash
+        $path = $request->file('image')->store('car_photos', 'public');
+
+        // DBga yozish
+        $photo = CarPhoto::create([
+            'car_id' => $request->car_id,
+            'image_url' => '/storage/' . $path,
+            'is_main' => $request->is_main ?? false,
+        ]);
+
+        return response()->json([
+            'message' => 'Rasm muvaffaqiyatli saqlandi!',
+            'data' => $photo
+        ], 201);
     }
 
     /**
@@ -54,21 +72,41 @@ class CarPhotoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, CarPhoto $car)
+    public function update(Request $request, CarPhoto $carPhoto)
     {
         $data = $request->validated();
-        $car->update($data);
-        return CarPhotoResource::make($car);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time().'_'.$image->getClientOriginalName();
+            $path = $image->storeAs('car_photos', $imageName, 'public');
+
+            // eski rasm faylini o'chirish (ixtiyoriy)
+            if ($carPhoto->image_path && file_exists(public_path($carPhoto->image_path))) {
+                unlink(public_path($carPhoto->image_path));
+            }
+
+            $data['image_path'] = '/storage/' . $path;
+        }
+
+        $carPhoto->update($data);
+        return CarPhotoResource::make($carPhoto);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CarPhoto $car)
+    public function destroy(CarPhoto $carPhoto)
     {
-        $car->delete();
+        // Faylni o‘chirib yuboramiz (ixtiyoriy, lekin tavsiya qilinadi)
+        if ($carPhoto->image_path && file_exists(public_path($carPhoto->image_path))) {
+            unlink(public_path($carPhoto->image_path));
+        }
+
+        $carPhoto->delete();
+
         return response()->json([
-            'message' => 'CarPhoto Deleted',
+            'message' => 'Car photo deleted successfully.',
         ]);
     }
 }

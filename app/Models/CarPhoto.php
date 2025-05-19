@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CarPhoto extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'likes'];
+    protected $fillable = ['car_id', 'image_url', 'is_main'];
+
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
 }

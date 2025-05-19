@@ -27,4 +27,8 @@ class Car extends Model
         'is_available',
         'description',
     ];
+    public function photos()
+{
+    return $this->hasMany(CarPhoto::class);
+}
 }
