@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Resources\Car\CarResource;
+use App\Http\Resources\CarResource;
 use App\Models\Car;
 use Illuminate\Http\Request;
 use App\Http\Requests\Car\StoreRequest;
@@ -15,14 +15,6 @@ class CarController extends Controller
     {
         $cars = Car::all();
         return CarResource::collection($cars);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -44,14 +36,6 @@ class CarController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Car $car)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateRequest $request, Car $car)
@@ -69,6 +53,7 @@ class CarController extends Controller
         $car->delete();
         return response()->json([
             'message' => 'Car Deleted',
+            'data' => $car,
         ]);
     }
 }

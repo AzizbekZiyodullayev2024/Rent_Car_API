@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Car\UpdateRequest;
+use App\Http\Requests\City\StoreRequest;
 use App\Http\Resources\CityResource;
 use App\Models\City;
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ class CityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $data = $request->validated();
         $city = City::create($data);     
@@ -30,23 +32,15 @@ class CityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(City $post)
+    public function show(City $city)
     {
-        return CityResource::make($post);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(City $city)
-    {
-        //
+        return CityResource::make($city);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, City $city)
+    public function update(UpdateRequest $request, City $city)
     {
         $data = $request->validated();
         $city->update($data);

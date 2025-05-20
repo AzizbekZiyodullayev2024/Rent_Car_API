@@ -1044,13 +1044,13 @@
                 ]
             }
         },
-        "/api/cities": {
+        "/api/city": {
             "get": {
                 "tags": [
                     "City"
                 ],
                 "summary": "Get All Cities",
-                "operationId": "ada44ad22712f1486492fc6e6171b624",
+                "operationId": "0ae2d11dfc986adc50e9f15e693335bf",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1092,7 +1092,7 @@
                     "City"
                 ],
                 "summary": "Create City",
-                "operationId": "82653104a9039f871f02f3c40b7b498c",
+                "operationId": "766f2409c850fd4d65f4d34d5fa547a2",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1146,13 +1146,13 @@
                 ]
             }
         },
-        "/api/cities/{city}": {
+        "/api/city/{city}": {
             "get": {
                 "tags": [
                     "City"
                 ],
                 "summary": "Get Cities by param",
-                "operationId": "22d3ebe5ff09f38c53b1cd49ee386772",
+                "operationId": "d55895a343198afc5fe808c668b87fbb",
                 "parameters": [
                     {
                         "name": "city",
@@ -1203,7 +1203,7 @@
                     "City"
                 ],
                 "summary": "Delete City by id",
-                "operationId": "649be927993e4f04e799ac453585dee8",
+                "operationId": "b0f7837788d17e645b3ec57a05948ddc",
                 "parameters": [
                     {
                         "name": "city",
@@ -1242,7 +1242,7 @@
                     "City"
                 ],
                 "summary": "Update City by param",
-                "operationId": "338190d817a1224f17c964f4a57edf0b",
+                "operationId": "57697c03762180cb52418c945eaeb59a",
                 "parameters": [
                     {
                         "name": "city",

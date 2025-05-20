@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 /**
  * @OA\Post(
- *      path="/api/cities",     
+ *      path="/api/city",     
  *      summary="Create City",
  *      tags={"City"},
  *      security={{ "bearerAuth": {} }},
@@ -34,7 +34,7 @@ use App\Http\Controllers\Controller;
  * ),
  * 
  * @OA\Get(
- *      path="/api/cities",     
+ *      path="/api/city",     
  *      summary="Get All Cities",
  *      tags={"City"},
  *      security={{ "bearerAuth": {} }},
@@ -52,7 +52,7 @@ use App\Http\Controllers\Controller;
  * ),
  * 
  * @OA\Get(
- *      path="/api/cities/{city}",     
+ *      path="/api/city/{city}",     
  *      summary="Get Cities by param",
  *      tags={"City"},
  *      security={{ "bearerAuth": {} }},
@@ -78,7 +78,7 @@ use App\Http\Controllers\Controller;
  * ),
  * 
  * @OA\Patch(
- *      path="/api/cities/{city}",     
+ *      path="/api/city/{city}",     
  *      summary="Update City by param",
  *      tags={"City"},
  *      security={{ "bearerAuth": {} }},
@@ -114,7 +114,7 @@ use App\Http\Controllers\Controller;
  * ),
  * 
  * @OA\Delete(
- *      path="/api/cities/{city}",     
+ *      path="/api/city/{city}",     
  *      summary="Delete City by id",
  *      tags={"City"},
  *      security={{ "bearerAuth": {} }},

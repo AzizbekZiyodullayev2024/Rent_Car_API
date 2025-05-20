@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\Post\StoreRequest;
@@ -17,14 +17,6 @@ class PostController extends Controller
     {
         $posts = Post::all();
         return PostResource::collection($posts);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -43,14 +35,6 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return PostResource::make($post);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
     }
 
     /**

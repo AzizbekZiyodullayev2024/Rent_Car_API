@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Resources\CarPhotoResource;
 use App\Models\CarPhoto;
-use Illuminate\Http\Request;
+use App\Http\Requests\CarPhoto\StoreRequest;
+use App\Http\Requests\CarPhoto\UpdateRequest;
 class CarPhotoController extends Controller
 {
     /**
@@ -11,23 +12,18 @@ class CarPhotoController extends Controller
      */
     public function index()
     {
+        
         $cars = CarPhoto::all();
         return CarPhotoResource::collection($cars);
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
+        dd(12);
+        
         $request->validate([
             'car_id' => 'required|exists:cars,id',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
@@ -53,23 +49,15 @@ class CarPhotoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CarPhoto $car)
+    public function show(CarPhoto $photo)
     {
-        return CarPhotoResource::make($car);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CarPhoto $car)
-    {
-        //
+        return CarPhotoResource::make($photo);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CarPhoto $carPhoto)
+    public function update(UpdateRequest $request, CarPhoto $photo)
     {
         $data = $request->validated();
 
@@ -79,28 +67,28 @@ class CarPhotoController extends Controller
             $path = $image->storeAs('car_photos', $imageName, 'public');
 
             // eski rasm faylini o'chirish (ixtiyoriy)
-            if ($carPhoto->image_path && file_exists(public_path($carPhoto->image_path))) {
-                unlink(public_path($carPhoto->image_path));
+            if ($photo->image_path && file_exists(public_path($photo->image_path))) {
+                unlink(public_path($photo->image_path));
             }
 
             $data['image_path'] = '/storage/' . $path;
         }
 
-        $carPhoto->update($data);
-        return CarPhotoResource::make($carPhoto);
+        $photo->update($data);
+        return CarPhotoResource::make($photo);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CarPhoto $carPhoto)
+    public function destroy(CarPhoto $photo)
     {
         // Faylni o‘chirib yuboramiz (ixtiyoriy, lekin tavsiya qilinadi)
-        if ($carPhoto->image_path && file_exists(public_path($carPhoto->image_path))) {
-            unlink(public_path($carPhoto->image_path));
+        if ($photo->image_path && file_exists(public_path($photo->image_path))) {
+            unlink(public_path($photo->image_path));
         }
 
-        $carPhoto->delete();
+        $photo->delete();
 
         return response()->json([
             'message' => 'Car photo deleted successfully.',

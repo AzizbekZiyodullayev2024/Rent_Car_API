@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\CarPhoto;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -20,10 +20,12 @@ class UpdateRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
-        return [
-            'title' => 'required|string',
-            'likes' => 'required|integer', 
-        ];
-    }
+{
+    return [
+        'car_id' => 'required|exists:cars,id',
+        'image_url' => 'required|string|max:255',
+        'is_main' => 'boolean',
+    ];
+}
+
 }
