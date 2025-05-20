@@ -52,6 +52,10 @@
                                                         "type": "string",
                                                         "example": "7L/100km"
                                                     },
+                                                    "body_type": {
+                                                        "type": "string",
+                                                        "example": "sedan"
+                                                    },
                                                     "transmission": {
                                                         "type": "string",
                                                         "example": "Automatic"
@@ -151,6 +155,10 @@
                                                 "type": "string",
                                                 "example": "7L/100km"
                                             },
+                                            "body_type": {
+                                                "type": "string",
+                                                "example": "sedan"
+                                            },
                                             "transmission": {
                                                 "type": "string",
                                                 "example": "Automatic"
@@ -240,6 +248,10 @@
                                                     "type": "string",
                                                     "example": "7L/100km"
                                                 },
+                                                "body_type": {
+                                                    "type": "string",
+                                                    "example": "sedan"
+                                                },
                                                 "transmission": {
                                                     "type": "string",
                                                     "example": "Automatic"
@@ -287,6 +299,46 @@
                                                 }
                                             },
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/carsModel": {
+            "get": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "Get All Car Models",
+                "operationId": "f51c38084199fa6c954a25f830406c47",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "model": {
+                                                        "type": "string",
+                                                        "example": "Cobalt"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         }
                                     },
                                     "type": "object"
@@ -356,6 +408,10 @@
                                                     "fuel_consumption": {
                                                         "type": "string",
                                                         "example": "7L/100km"
+                                                    },
+                                                    "body_type": {
+                                                        "type": "string",
+                                                        "example": "sedan"
                                                     },
                                                     "transmission": {
                                                         "type": "string",
@@ -469,6 +525,10 @@
                                             "type": "string",
                                             "example": "7L/100km"
                                         },
+                                        "body_type": {
+                                            "type": "string",
+                                            "example": "sedan"
+                                        },
                                         "transmission": {
                                             "type": "string",
                                             "example": "Automatic"
@@ -577,6 +637,10 @@
                                                 "type": "string",
                                                 "example": "7L/100km"
                                             },
+                                            "body_type": {
+                                                "type": "string",
+                                                "example": "sedan"
+                                            },
                                             "transmission": {
                                                 "type": "string",
                                                 "example": "Automatic"
@@ -668,6 +732,10 @@
                                                     "fuel_consumption": {
                                                         "type": "string",
                                                         "example": "7L/100km"
+                                                    },
+                                                    "body_type": {
+                                                        "type": "string",
+                                                        "example": "sedan"
                                                     },
                                                     "transmission": {
                                                         "type": "string",

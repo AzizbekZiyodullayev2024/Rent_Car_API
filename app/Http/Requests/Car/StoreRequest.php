@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'year' => 'required|integer|min:1900|max:' . (date('Y') + 1), // 1900 dan hozirgi yilgacha
             'engine_volume' => 'required|string|max:50',
             'fuel_consumption' => 'required|string|max:50',
+            'body_type' => 'required|string|max:50',
             'transmission' => 'required|string|max:50',
             'fuel_type' => 'required|string|max:50',
             'seats' => 'required|integer|min:1|max:20',

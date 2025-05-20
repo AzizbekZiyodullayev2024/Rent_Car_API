@@ -30,6 +30,7 @@ class UpdateRequest extends FormRequest
             'fuel_consumption' => 'required|string|max:50',
             'transmission' => 'required|string|max:50',
             'fuel_type' => 'required|string|max:50',
+            'body_type' => 'required|string|max:50',
             'seats' => 'required|integer|min:1|max:20',
             'doors' => 'required|integer|min:1|max:10',
             'daily_price' => 'required|integer|min:0',

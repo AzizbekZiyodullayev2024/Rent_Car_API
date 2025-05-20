@@ -14,6 +14,7 @@ class Car extends Model
         'brand',
         'model',
         'year',
+        'body_type',
         'engine_volume',
         'fuel_consumption',
         'transmission',

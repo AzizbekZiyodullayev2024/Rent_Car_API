@@ -8,10 +8,31 @@ use App\Http\Requests\Car\StoreRequest;
 use App\Http\Requests\Car\UpdateRequest;
 class CarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function getByBodyType($body_type)
+    {
+        $cars = Car::where('body_type', $body_type)->get();
+        
+        if ($cars->isEmpty()) {
+            return response()->json([
+                'message' => 'Berilgan body_type uchun mashinalar topilmadi.',
+                'data' => []
+            ], 404);
+        }
+    
+        return response()->json([
+            'message' => 'Mashinalar ro‘yxati',
+            'data' => CarResource::collection($cars)
+        ], 200);
+    }
+
+    public function getModels()
+    {
+        $models = Car::select('model')->distinct()->pluck('model');
+        return response()->json([
+            'models' => $models,
+        ]);
+    }
+     public function index()
     {
         $cars = Car::all();
         return CarResource::collection($cars);

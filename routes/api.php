@@ -15,6 +15,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('me', [AuthController::class,'me']);
 });
 
+//CRUD
 Route::post('/posts', [PostController::class, 'store'])->middleware('jwt.auth');
 Route::get('/posts', [PostController::class, 'index'])->middleware('jwt.auth');
 Route::get('/posts/{post}', [PostController::class, 'show'])->middleware('jwt.auth');
@@ -38,3 +39,7 @@ Route::get('/car_photo', [CarPhotoController::class, 'index'])->middleware('jwt.
 Route::get('/car_photo/{photo}', [CarPhotoController::class, 'show'])->middleware('jwt.auth');
 Route::patch('/car_photo/{photo}', [CarPhotoController::class, 'update'])->middleware('jwt.auth');
 Route::delete('/car_photo/{photo}', [CarPhotoController::class, 'destroy'])->middleware('jwt.auth');
+
+//Search;
+Route::get('/carsModel', [CarController::class, 'getModels'])->middleware('jwt.auth');
+Route::get('/carsBodyType/{body_type}', [CarController::class, 'getByBodyType'])->middleware('jwt.auth');
