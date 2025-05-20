@@ -5,18 +5,17 @@ use App\Http\Resources\CarPhotoResource;
 use App\Models\CarPhoto;
 use App\Http\Requests\CarPhoto\StoreRequest;
 use App\Http\Requests\CarPhoto\UpdateRequest;
-
+use Illuminate\Support\Facades\Log;
 class CarPhotoController extends Controller
 {
     public function index()
-    {lstat
+    {
         $cars = CarPhoto::all();
         return CarPhotoResource::collection($cars);
     }
 
     public function store(StoreRequest $request)
     {
-
         if (!$request->hasFile('image')) {
             return response()->json(['message' => 'Rasm topilmadi!'], 400);
         }
