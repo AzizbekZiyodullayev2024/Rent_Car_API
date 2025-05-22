@@ -21,7 +21,6 @@ class CarPhotoController extends Controller
         }
         
         $path = $request->file('image')->store('car_photos', 'public');
-        
         $photo = CarPhoto::create([
             'car_id' => $request->car_id,
             'image_url' => '/storage/' . $path,
@@ -52,7 +51,6 @@ class CarPhotoController extends Controller
             $imageName = time().'_'.$image->getClientOriginalName();
             $path = $image->storeAs('car_photos', $imageName, 'public');
 
-            // eski rasm faylini o'chirish
             $storagePath = storage_path('app/public/' . str_replace('/storage/', '', $photo->image_url));
             if ($photo->image_url && file_exists($storagePath)) {
                 unlink($storagePath);
